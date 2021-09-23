@@ -28,9 +28,13 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 Abra o Eclipse IDE, abra a aba file opção import, procure a pasta Maven e nela procure a opção Existing Maven Projects,
 selecione o diretório no qual você fez o clone do projeto e click em finish, projeto importado 😎<br>
 
+#### Startando a aplicação.
+
+Abra o package br.com.descartes.rota, click com o botão direito na classe RotasApplication.java, selecione a opção Run As / Java Application.
+
 #### Postman.
 
-  - Para criar uma rota, deve-se enviar uma requisição POST para /Route contendo uma rota válida.
+  - Para criar uma rota, deve-se enviar uma requisição POST para localhost:8080/Route contendo uma rota válida.
   - Exemplo de rota válida:
   
       {
@@ -50,5 +54,26 @@ selecione o diretório no qual você fez o clone do projeto e click em finish, p
         ]
       }
       
-  - Lembre-se de usar os termos HTTP para outras operações do CRUD.
+      
+  - Para gerar uma lista de todas as rotas, deve-se enviar uma requisição GET para localhost:8080/Route.
+  - Para buscar por uma rota especifica deve-se enviar uma requisição GET para localhost:8080/Route/ ID passando o ID desejado.
+  - Para deletar uma rota deve-se enviar uma requisição DELETE para localhost:8080/Route/ID passando o ID da rota a ser excluída.
+  - Para editar uma rota deve-se enviar uma requisição PUT para localhost:8080/Route/ID passando o ID da rota que deseja alterar, no corpo da requisição enviar um JSON contendo as alterações como abaixo:
+	{
+	    "status": "DONE",
+	    "paradas": [
+		{
+		    "descricao": "ezfomeadoz teste atualizacao",
+		    "endereço": "Av. Bulevar sao cristovao",
+		    "latitude": -3.8351241302460903,
+		    "longitude": -38.51795765097331,
+		    "statusParada": "NOT_ANSWER",
+		    "deliveryRadius": 10
+		}
+	    ]
+	}
+
+  
+  - Existe também a opção de consumir a API via Heroku, com o link: https://apirest-rotas.herokuapp.com/Route 
+  - Lembre-se de usar os termos HTTP para outras operações do CRUD. 
   - Com as informações acima, já e possível consumir a API com facilidade.
